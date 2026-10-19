@@ -1,0 +1,65 @@
+@use './variables' as *;
+@use './mixins.scss' as *;
+@use "sass:color";
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    .navbar {
+     background-color: $nav-color !important;
+     
+        .navbar-brand {
+            img {
+                width: 3.125rem;
+                height: auto;
+            }
+        }
+        ul {
+            margin: auto;
+            li {
+                margin-left: 2.5rem;
+            }
+        }
+        .login {
+            transition: all 0.3s ease;
+            text-align: center;
+            i {
+             font-size: 2rem;
+            }
+            .login-container {
+                a {
+                    text-decoration: none;
+                    opacity: 0;
+                     @include button($background-color, $btn-color, $background-color) 
+                }  
+            } 
+            &:hover {
+                a {
+                    opacity: 1;
+                }
+            }
+        }  
+    }
+    
+}
+main {
+    section {
+        padding-top: 6.25rem;
+        &.about {
+            background-image: url('/src/images/background.jpg');
+            background-size: cover;
+            .about-title {
+                @include title($text-color, $nav-color)
+            }
+            .about-text {
+                color: $text-color;
+                font-size: 1.5rem;
+                margin-left: 25%;
+                font-weight: 900;
+            }
+        }
+    }
+}
