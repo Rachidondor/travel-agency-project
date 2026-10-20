@@ -2,9 +2,11 @@
 @use './mixins.scss' as *;
 @use "sass:color";
 
-body {
+html, body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 header {
@@ -16,9 +18,11 @@ header {
                 width: 3.125rem;
                 height: auto;
             }
+            font-size: 1.3rem;
         }
         ul {
             margin: auto;
+            font-size: 1.3rem;
             li {
                 margin-left: 2.5rem;
             }
@@ -41,13 +45,20 @@ header {
                     opacity: 1;
                 }
             }
+        }
+        .login-button {
+            a {
+                text-decoration: none;
+                display: none;
+                @include button($background-color, $btn-color, $btn-color) 
+            }  
         }  
     }
     
 }
 main {
     section {
-        padding-top: 6.25rem;
+        padding-top: 6rem;
         &.about {
             background-image: url('/src/images/background.jpg');
             background-size: cover;
@@ -58,7 +69,137 @@ main {
                 color: $text-color;
                 font-size: 1.5rem;
                 margin-left: 25%;
+                margin-top: 1.875rem;
                 font-weight: 900;
+            }
+        }
+        &.services {
+           .service-title {
+                @include title($text-color, $nav-color);
+                margin-top: -2.875rem;
+            }
+            .service-cards {
+                .card {
+                    min-height: 17.5rem;
+                    i {
+                        font-size: 490% !important;
+                        margin: auto;
+                        margin-top: 1rem;
+                    }
+                    .card-text {
+                        color: $text-color;
+                        font-size: 1.5rem;
+                        font-weight: 700;  
+                    }
+                }
+            }  
+        }
+        &.travels {
+            .card {
+                margin: auto;
+            }
+            .travel-title {
+                @include title($text-color, $nav-color);
+                margin-top: -2.875rem;
+            }
+            .travel-text {
+                justify-content: space-between;
+                align-items: center;
+                p {
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    color: $text1-color;
+                }
+            }
+            .card-body {
+                a {
+                    @include button($btn-color, $background-color, $btn-color)
+                }
+                text-align: center;
+                font-size: 1.3rem;
+            }
+        }
+        &.contact {
+            background-image: url(/src/images/background1.jpg);
+            background-size: cover;
+            margin-top: 1rem;
+            .contact-title {
+                @include title($text-color, $nav-color);
+                margin-top: -2.875rem;
+            }
+            ul {
+                list-style: none;
+                font-size: 1.3rem;
+                margin-top: 2.5rem;
+                margin-right: 3rem;
+                li {
+                    margin-top: 1rem;
+                    color: $text1-color;
+                    span {
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+    }
+}
+footer {
+    background-color: $nav-color;
+    height: 7vh;
+    padding: 1rem;
+    align-items: center;
+    .footer-text {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .footer-social {
+        i {
+         font-size: 2rem;
+         font-weight: bold;
+         margin-left: 1rem;
+         color: $text-color;
+         &:hover {
+            color: $btn-color;
+         }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    header {
+        .navbar {
+            .login {
+                display: none;
+            }
+            .login-button {
+                a {
+                    display: block;
+                    text-align: center;
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+    section {
+        &.services {
+            .service-cards {
+                .card-text {
+                    font-size: 1.2rem !important;
+                    font-weight: 600 !important;  
+                } 
+            }  
+        }
+        &.contact {
+            ul {
+                margin-right: 1rem !important;
+                margin-top: 1rem !important;
+                li {
+                    margin-top: 0.5rem !important;
+                }
+            }
+            iframe {
+                width: 100%;
+                height: 300px;
             }
         }
     }

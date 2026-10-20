@@ -18,16 +18,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">عن الشركة</a>
+              <a class="nav-link active" aria-current="page" href="#about">عن الشركة</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">خدماتنا</a>
+              <a class="nav-link" href="#services">خدماتنا</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">رحلاتنا</a>
+              <a class="nav-link" href="#travels">رحلاتنا</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">تواصل معنا</a>
+              <a class="nav-link" href="#contact">تواصل معنا</a>
             </li>
           </ul>
           <div class="login">
@@ -36,12 +36,15 @@
               <a href="./signin.html" class="button">تسجيل الدخول</a>
             </div>
           </div>
-  
+        <div class="login-button">
+              <a href="./signin.html" class="button">تسجيل الدخول</a>
+            </div>
+        </div>
       </div>
     </nav>
   </header>
   <main>
-    <section class="about">
+    <section class="about" id="about">
       <div class="container">
         <div class="about-title"><h2>عن الشركة:</h2></div>
         <div class="about-text">
@@ -59,10 +62,127 @@
         </div>
       </div>
     </section>
-    <section class="services"></section>
-    <section class="travels"></section>
-    <section class="contact"></section>
+    <section class="services" id="services">
+      <div class="container">
+        <div class="service-title"><h2>خدماتنا:</h2></div>
+        <div class="service-cards">
+          <div class="row">
+            <div class="col-md-6 mt-3">
+              <div class="card">
+                <i class="fa-solid fa-car-side"></i>
+                <div class="card-body">
+                  <p class="card-text">حجز سيارة: نقدم لكم خدمة حجز السيارات سواءً سيارات الأوتوماتيك أو السيارات العادي</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mt-3">
+              <div class="card">
+                <i class="fa-solid fa-building"></i>
+                <div class="card-body">
+                  <p class="card-text">حجز سكن: نقدم لكم خدمة الحجوزات في أفضل الفنادق والشقق ذات الإطلالة الرائعة والقريبة من جميع
+                  الخدمات.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mt-3">
+              <div class="card">
+                <i class="fa-solid fa-person-hiking"></i>
+                <div class="card-body">
+                  <p class="card-text">جولات سياحية: جولات سياحية خاصة مع أمهر السائقين كما نقدم جولات جماعية بأحدث الباصات مع أفضل المرشدين السياحيين الذين يُجيدون اللغة العربية ولإنجليزية.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mt-3">
+              <div class="card">
+                <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+                <div class="card-body">
+                  <p class="card-text">الاستقبال من المطار: نقدم لكم خدمة الاستقبال من المطار وتوديعكم في المطار بحيث يكون مندوبنا متواجد دائمًا في خدمتكم أثناء وصولكم أو ذهابكم للمطار مع أفضل وسائل النقل.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="travels" id="travels">
+      <div class="container">
+        <div class="travel-title"><h2>رحلاتنا:</h2></div>
+        <div class="travel-cards">
+          <div class="row">
+            <div class="col-12 mt-3">
+              <div class="card" style="max-width: 80%">
+               <img src="images/travel2.jpg" class="card-img-top" alt="photo">
+               <div class="card-body">
+                  <div class="d-flex travel-text">
+                    <h3 class="card-title text-start">رحلة إلى الأهرامات في مصر</h3>
+                    <p class="card-text text-end">السعر: 209$</p>
+                  </div>
+                  <a href="travel1.html" class="btn-solid theme-primary">تعرف على المزيد</a>
+               </div>
+            
+              </div>
+            </div>
+            <div class="col-12 mt-5">
+              <div class="card" style="max-width: 80%">
+               <img src="images/travel1.jpg" class="card-img-top" alt="photo">
+               <div class="card-body">
+                  <div class="d-flex travel-text">
+                    <h3 class="card-title text-start">رحلةإلى مدينة إسطنبول في تركيا</h3>
+                    <p class="card-text text-end">السعر: 229$</p>
+                  </div>
+                  <a href="travel2.html" class="btn-solid theme-primary">تعرف على المزيد</a>
+               </div>
+            
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-title"><h2>تواصل معنا:</h2></div>
+        <div class="contact-content">
+          <div class="row">
+            <div class="col-md-5">
+              <ul>
+                <li>
+                 رقم الهاتف:
+                 <span>060507665577</span>
+                </li>
+                <li>
+                  البريد الإلكتروني:
+                 <span>munie@travel.com</span> 
+                </li>
+                <li>
+                 العنوان:
+                 <span> Rue de Paris، تلمسان 13000</span> 
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-7 mb-2">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3272.9689182843786!2d-1.3128028!3d34.8821268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd78c950f541b5f5%3A0x70f11bd296087db9!2z2YjZg9in2YTYqSDYp9mG2YjYp9ixINin2YTYtdio2KfYrSDYqtmE2YXYs9in2YY!5e0!3m2!1sar!2sdz!4v1792493498500!5m2!1sar!2sdz" width="570" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer></footer>  
+  <footer>     
+    <div id="copyright-social">
+      <div class="container">
+        <div class="clear-fix">
+          <div id="copyright" class="float-start footer-text">
+                           
+          </div>
+          <div id="social" class="float-end footer-social">
+            <a href="www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+            <a href="www.youtube.com"><i class="fa-brands fa-youtube"></i></a>
+            <a href="www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+    </div>
+  </div>
+  </footer> 
 </body>
 </html>
