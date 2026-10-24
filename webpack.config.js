@@ -1,7 +1,9 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const path = require('path');
+
 
 module.exports = {
   entry: './src/index.js',
@@ -26,8 +28,8 @@ module.exports = {
         type: 'javascript/auto',
       },
       {
-        test: /\.html$/,
-        use: ['html-loader'] // معالجة ملفات الـ HTML وجلب الصور منها
+        test: /\.html$/i,
+        use: 'html-loader',
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -65,6 +67,11 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'css/style.css'
-    })
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    }),
   ],
 };
