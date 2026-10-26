@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg  fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="photo">
+          سفرني
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">الصفحة الرئيسية</a>
+            </li>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                الرحلات
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="travel1.html">رحلة مصر</a></li>
+                <li><a class="dropdown-item" href="travel2.html">رحلة تركيا</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+<main>
+    <section class="sign">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 d-none d-lg-block"></div>
+                <div class="col-lg-6">
+                    <div class="sign-title"><h2>تسجيل الدخول إلى حسابك:</h2></div>
+                    <div class="sign-forme">
+                        <form class="d-flex flex-column gap-3">
+                            <label for="email" class="visually-hidden">البريد الإلكتروني:</label>
+                            <input type="email" id="email" placeholder="ادخل الايميل أو اسم المستخدم" required>
+                            <label for="password" class="visually-hidden">كلمة المرور:</label>
+                            <input type="password" id="password" placeholder="ادخل كلمة المرور" required>
+                            <button type="submit">تسجيل الدخول</button>
+                        </form>
+                        <a href="signup.html">نسيت كلمة المرور؟</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>     
+    <div id="copyright-social">
+      <div class="container">
+        <div class="clear-fix">
+          <div id="copyright" class="float-start footer-text">
+                           
+          </div>
+          <div id="social" class="float-end footer-social">
+            <a href="www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+            <a href="www.youtube.com"><i class="fa-brands fa-youtube"></i></a>
+            <a href="www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+    </div>
+  </div>
+</footer>  
+</body>
+</html>

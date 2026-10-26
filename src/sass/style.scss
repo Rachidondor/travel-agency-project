@@ -7,6 +7,9 @@ html, body {
     padding: 0;
     overflow-x: hidden;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -152,6 +155,9 @@ main {
                     max-height: 324px;
                     height: 100%;      
                     object-fit: cover;
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
             }
             /* إخفاء النافذة وتغطية الشاشة بخلفية شفافة */
@@ -179,6 +185,29 @@ main {
                 }
             }
         }
+        &.sign {
+            .d-lg-block {
+                background-image: url(/src/images/logo.png);
+                background-size: 3rem;
+                background-repeat: repeat;
+            }
+            .sign-title {
+                @include title ($text-color, $nav-color);
+                margin-bottom: 33%;
+            }
+            .sign-forme {
+                flex: 1;
+                height: 50vh;
+                input {
+                    line-height: 2rem;
+                    direction: rtl;
+                }
+            }
+            button {
+                @include button ($btn-color, $background-color, $btn-color);
+                margin-bottom: 1rem;
+            }
+        }
     }
 }
 footer {
@@ -186,6 +215,7 @@ footer {
     height: 7vh;
     padding: 1rem;
     align-items: center;
+    margin-top: auto;
     .footer-text {
         font-size: 1rem;
         font-weight: bold;
@@ -218,26 +248,52 @@ footer {
             }
         }
     }
-    section {
-        &.services {
-            .service-cards {
-                .card-text {
-                    font-size: 1.2rem !important;
-                    font-weight: 600 !important;  
-                } 
-            }  
-        }
-        &.contact {
-            ul {
-                margin-right: 1rem !important;
-                margin-top: 1rem !important;
-                li {
-                    margin-top: 0.5rem !important;
+    main {
+       section {
+            &.about {
+                .about-text {
+                    font-size: 1.3rem;
+                    font-weight: 800;
                 }
             }
-            iframe {
-                width: 100%;
-                height: 300px;
+            &.services {
+                .service-cards {
+                    .card-text {
+                        font-size: 1.2rem !important;
+                        font-weight: 600 !important;  
+                    } 
+                }  
+            }
+            &.contact {
+                ul {
+                    margin-right: 1rem !important;
+                    margin-top: 1rem !important;
+                    li {
+                        margin-top: 0.5rem !important;
+                    }
+                }
+                iframe {
+                    width: 100%;
+                    height: 300px;
+                }
+            }
+            &.gallery {
+                .popup-content {
+                    padding: 1em !important;
+                    width: 100% !important;
+                }
+            }
+        } 
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        section {
+            &.gallery {
+                .gallery-img {
+                    width: 83% !important;
+                }
             }
         }
     }
