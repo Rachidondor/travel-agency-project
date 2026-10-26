@@ -195,6 +195,10 @@ main {
                 @include title ($text-color, $nav-color);
                 margin-bottom: 33%;
             }
+            .signup-title {
+                @include title ($text-color, $nav-color);
+                margin-bottom: 0.8rem;
+            }
             .sign-forme {
                 flex: 1;
                 height: 50vh;
@@ -205,6 +209,7 @@ main {
             }
             button {
                 @include button ($btn-color, $background-color, $btn-color);
+                line-height: 2rem;
                 margin-bottom: 1rem;
             }
         }
