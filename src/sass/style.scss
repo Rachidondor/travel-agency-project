@@ -3,6 +3,8 @@
 @use "sass:color";
 
 html, body {
+    font-family: 'Cairo', sans-serif;
+    background: rgba(15, 23, 42, 0.39);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -62,18 +64,111 @@ header {
 main {
     section {
         padding-top: 6rem;
+        &.overlay {
+            background: rgba(15, 23, 42, 0.77);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
         &.about {
-            background-image: url('/src/images/background.jpg');
-            background-size: cover;
+            position: relative;
+            img {
+                height: 700px;
+            }
+            .carousel-caption {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding-top: 25%;
+                .about-title {
+                    color: $nav-color;
+                    padding-left: 80%;
+                    z-index: 3;
+                }
+                .about-text {
+                    color: $background-color;
+                    padding-left: 10%;
+                    font-size: 1.1rem;
+                    z-index: 3; 
+                }
+            }
+            .custom-progress-indicators {
+                // التحكم في شكل وموقع حاوية المؤشرات
+                position: relative;
+                gap: 8px;
+                margin-bottom: 0;
+
+                button {
+                    width: 50px !important; // عرض الشريط
+                    height: 4px !important;  // سمك الشريط
+                    background-color: rgba(255, 255, 255, 0.3) !important; // لون الخلفية الفارغة
+                    border: none !important;
+                    border-radius: 2px;
+                    opacity: 1 !important;
+                    overflow: hidden;
+                    position: relative;
+                    padding: 0;
+
+                    // الشريط الداخلي الذي سيتحرك ويمتلئ
+                    .indicator-bar {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0%;
+                    height: 100%;
+                    background-color: #ffffff; // لون الشريط عند الامتلاء (أو استخدم $nav-color لديك)
+                    }
+
+                    // عندما تكون الشريحة نشطة (Active)، يبدأ الشريط بالامتلاء خلال الزمن المخصص (مثلاً 5 ثوانٍ)
+                    &.active {
+                    .indicator-bar {
+                        animation: fillProgress 7s linear forwards; // 5s تطابق مدة السلايدر data-bs-interval
+                    }
+                    }
+                }
+                }
+
+                // تعريف حركة الامتلاء من 0% إلى 100%
+                @keyframes fillProgress {
+                0% {
+                    width: 0%;
+                }
+                100% {
+                    width: 100%;
+                }
+            }
+            // إذا كان السلايدر الماوس فوقه
+            #carouselExampleAutoplaying:hover {
+                .custom-progress-indicators button.active .indicator-bar {
+                    animation-play-state: paused; // يتوقف امتلاء الشريط فوراً مع توقف الصورة
+                }
+            }
+            button {
+                @include button ($btn-color, $background-color, $btn-color);
+                position: relative;
+                z-index: 3;
+                margin-top: 5%;
+            }
             .about-title {
-                @include title($text-color, $nav-color)
+                @include title ($text-color, $nav-color)
             }
             .about-text {
-                color: $text-color;
                 font-size: 1.5rem;
-                margin-left: 25%;
-                margin-top: 1.875rem;
-                font-weight: 900;
+                margin-top: 3rem;
+            }
+            .about-img {
+                width: 100%;
+                height: 100%;
+                margin-top: 1rem;
+                transition: transform 0.5s ease;
+                &:hover {
+                    transform: scale(1.1);
+                }
             }
         }
         &.services {
@@ -83,16 +178,35 @@ main {
             }
             .service-cards {
                 .card {
-                    min-height: 17.5rem;
+                    padding-top: 1em;
+                    min-height: 20rem;
+                    border: 2px solid transparent;
+                    &:hover {
+                        border-color: $nav-color;
+                    }
                     i {
                         font-size: 490% !important;
-                        margin: auto;
                         margin-top: 1rem;
+                        margin-bottom: 1rem;
+                    }
+                    span {
+                       position: relative;
+                       padding-top: 2em;
+                       padding-left: 1em;
+                       &::before {
+                        content: "";
+                        position: absolute;
+                        height: 30%;
+                        width: 100%;
+                        background-color: rgba($nav-color, 0.3);
+                        border-radius: 23%;
+                        top: 1.7em;
+                        left: 0.5em;
+                       }
                     }
                     .card-text {
-                        color: $text-color;
-                        font-size: 1.5rem;
-                        font-weight: 700;  
+                        color: $text1-color;
+                        font-size: 1.4rem;  
                     }
                 }
             }  
@@ -105,21 +219,24 @@ main {
                 @include title($text-color, $nav-color);
                 margin-top: -2.875rem;
             }
-            .travel-text {
-                justify-content: space-between;
-                align-items: center;
-                p {
-                    font-size: 1.3rem;
-                    font-weight: 600;
-                    color: $text1-color;
-                }
-            }
             .card-body {
+                .travel-text {
+                    margin-bottom: 1.5rem;
+                    justify-content: space-between;
+                    align-items: center;
+                    h3 {
+                        font-size: 1.4rem;
+                    }
+                    p {
+                        color: $text1-color;
+                    }
+                }
                 a {
-                    @include button($btn-color, $background-color, $btn-color)
+                    @include button($btn-color, $background-color, $btn-color);
                 }
                 text-align: center;
                 font-size: 1.3rem;
+                font-weight: 500;
             }
         }
         &.contact {
@@ -145,6 +262,7 @@ main {
             }
         }
         &.gallery {
+            margin-bottom: 1rem;
             .gallery-title {
                 @include title($text-color, $nav-color);
                 margin-top: -2.875rem;
@@ -185,33 +303,12 @@ main {
                 }
             }
         }
-        &.sign {
-            .d-lg-block {
-                background-image: url(/src/images/logo.png);
-                background-size: 3rem;
-                background-repeat: repeat;
-            }
-            .sign-title {
-                @include title ($text-color, $nav-color);
-                margin-bottom: 33%;
-            }
-            .signup-title {
-                @include title ($text-color, $nav-color);
-                margin-bottom: 0.8rem;
-            }
-            .sign-forme {
-                flex: 1;
-                height: 50vh;
-                input {
-                    line-height: 2rem;
-                    direction: rtl;
-                }
-            }
-            button {
-                @include button ($btn-color, $background-color, $btn-color);
-                line-height: 2rem;
-                margin-bottom: 1rem;
-            }
+        &.signin {
+            margin-top: 10%;
+           @include form-layout($text-color, $nav-color, $btn-color, $background-color, $text1-color);
+        }
+        &.signup {
+           @include form-layout($text-color, $nav-color, $btn-color, $background-color, $text1-color);
         }
     }
 }
@@ -234,6 +331,19 @@ footer {
          &:hover {
             color: $btn-color;
          }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    section {
+        &.travels {
+            .travel-text {
+                h3 {
+                   font-size: 1.3rem;
+                   font-weight: 500; 
+                }
+            }
         }
     }
 }
@@ -269,6 +379,13 @@ footer {
                     } 
                 }  
             }
+             &.travels {
+                .card-body {
+                    a {
+                        font-size: 1.2rem;
+                    }
+                }
+             }
             &.contact {
                 ul {
                     margin-right: 1rem !important;
@@ -288,17 +405,34 @@ footer {
                     width: 100% !important;
                 }
             }
+            &.signin {
+                margin-right: 5%;
+                margin-top: 17%;
+                .sign-forme {
+                    width: 100%;
+                }
+            }
+            &.signup {
+                margin-right: 5%;
+                .sign-forme {
+                    width: 100%;
+                }
+            }
         } 
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.9px) {
     main {
         section {
             &.gallery {
                 .gallery-img {
-                    width: 83% !important;
+                  width: 85% !important;
+                  margin: auto;
                 }
+            }
+            &.signin {
+                margin-top: 25%;
             }
         }
     }

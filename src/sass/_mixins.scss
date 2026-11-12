@@ -2,7 +2,7 @@
     background-color: $background-color;
     color: $color;
     border: 1px solid $border-color;
-    padding: 0.125em 1.875em;
+    padding: 0.125em 1.2em;
     border-radius: 5px;
     text-decoration: none;
     transition: all .5s ease;
@@ -27,4 +27,33 @@
         right: -1.875rem;
         background-color: $backgroun-color;
     }
+}
+
+@mixin form-layout ($text-color, $nav-color, $btn-color, $background-color, $text1-color) {
+     margin-right: 25%;
+            .sign-title {
+                @include title ($text-color, $nav-color);
+            }
+            .signup-title {
+                @include title ($text-color, $nav-color);
+            }
+            .sign-forme {
+                width: 70%;
+                
+                input {
+                    width: 100%;
+                    line-height: 2rem;
+                    direction: rtl;
+                    border-radius: 5px;
+                }
+                button {
+                 @include button ($btn-color, $background-color, $btn-color);
+                 line-height: 2rem;
+                 margin-bottom: 1rem;
+                }
+                a {
+                    color: $text1-color;
+                    margin-left: 1rem;
+                }
+            }
 }

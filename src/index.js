@@ -2,7 +2,9 @@ import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.rtl.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './sass/style.scss';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+import * as bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 $(function() {
     // عند النقر على أي صورة تحمل الكلاس popup-trigger

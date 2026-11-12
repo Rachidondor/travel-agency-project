@@ -32,7 +32,7 @@ module.exports = {
         use: 'html-loader',
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
         type: 'asset/resource', // نقل الصور وتحسين اسمها ومكانها في dist
         generator: {
           filename: './images/[name][ext]'
@@ -65,6 +65,10 @@ module.exports = {
       filename: 'signup.html',
       template: './src/signup.html'  // هنا تم استخدام قالب الـ HTML
     }),
+    new HtmlWebpackPlugin({
+      filename: 'password.html',
+      template: './src/password.html'  // هنا تم استخدام قالب الـ HTML
+    }),
     new MiniCssExtractPlugin({
       filename: 'css/style.css'
     }),
@@ -74,4 +78,11 @@ module.exports = {
       'window.jQuery': 'jquery'
     }),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      // تفعيل ضغط الـ CSS هنا
+      new CssMinimizerPlugin(),
+      // يمكنك إضافة TerserPlugin هنا لضغط الـ JavaScript أيضاً إذا رغبت
+  ],}
 };
