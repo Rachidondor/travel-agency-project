@@ -7,16 +7,20 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 $(function() {
+    // 1. تهيئة الكاروسال الخاص بـ Bootstrap
+    var myCarouselElement = document.querySelector('#carouselExampleFade');
+    var carousel = new bootstrap.Carousel(myCarouselElement);
+
     // عند النقر على أي صورة تحمل الكلاس popup-trigger
     $('.popup-trigger').click(function() {
-        // احصل على رابط الصورة التي تم النقر عليها
-        let imgSrc = $(this).attr('src');
+        // احصل على ترتيب الصورة التي تم النقر عليها (0, 1, 2, ...)
+        let index = $('.popup-trigger').index(this);
         
-        // ضع الرابط داخل صورة النافذة المنبثقة
-        $('#popupImage').attr('src', imgSrc);
-        
-        // أظهر النافذة
+        // أظهر النافذة المنبثقة
         $('#myPopup').css('display', 'flex'); // أو $('#myPopup').fadeIn();
+        
+        // الانتقال الفوري للشريحة المطابقة لنفس رقم الصورة في الكاروسال
+        carousel.to(index);
     });
 
     // عند النقر على زر الإغلاق
