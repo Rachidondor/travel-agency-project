@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const path = require('path');
@@ -83,6 +84,18 @@ module.exports = {
     minimizer: [
       // تفعيل ضغط الـ CSS هنا
       new CssMinimizerPlugin(),
-      // يمكنك إضافة TerserPlugin هنا لضغط الـ JavaScript أيضاً إذا رغبت
-  ],}
+     new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.sharpMinify,
+          options: {
+            encodeOptions: {
+              webp: {
+                quality: 77,
+              },
+            },
+          },
+        },
+      }),
+    ],
+  }
 };

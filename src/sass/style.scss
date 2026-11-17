@@ -7,7 +7,7 @@ html, body {
     background: rgba(15, 23, 42, 0.39);
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -64,35 +64,41 @@ header {
 main {
     section {
         padding-top: 6rem;
-        &.overlay {
-            background: rgba(15, 23, 42, 0.77);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
+        
         &.about {
-            position: relative;
-            img {
-                height: 700px;
+            .about-img {
+                max-height: 26rem;
+            }
+            .carousel-inner {
+                .img-overlay {
+                    position: relative;
+                }
+                .overlay {
+                    position: absolute;
+                    background: rgba(15, 23, 42, 0.77);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 2;
+                    pointer-events: none;
+                }
             }
             .carousel-caption {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                padding-top: 25%;
+                padding-top: 15%;
                 .about-title {
                     color: $nav-color;
-                    padding-left: 80%;
-                    z-index: 3;
+                    padding-left: 60%;
+                    z-index: 3; 
                 }
                 .about-text {
                     color: $background-color;
-                    padding-left: 10%;
+                    
                     font-size: 1.1rem;
                     z-index: 3; 
                 }
@@ -172,6 +178,7 @@ main {
             }
         }
         &.services {
+
            .service-title {
                 @include title($text-color, $nav-color);
                 margin-top: -2.875rem;
@@ -366,9 +373,13 @@ footer {
     main {
        section {
             &.about {
+                .about-title {
+                    font-size: 1.4rem;
+                    margin-bottom: 0.4rem;
+                }
                 .about-text {
                     font-size: 1.3rem;
-                    font-weight: 800;
+                    font-weight: 300;
                 }
             }
             &.services {
@@ -425,6 +436,12 @@ footer {
 @media (max-width: 767.9px) {
     main {
         section {
+            &.about {
+                .about-text {
+                    font-size: 1rem;
+                    font-weight: 100;
+                }
+            }
             &.gallery {
                 .gallery-img {
                   width: 85% !important;
